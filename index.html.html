@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary 😾❤️🌙</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            background-color: #f7eaea; /* Warna latar belakang lembut */
+            color: #800000;
+            padding: 20px;
+            margin: 0;
+        }
+        .background {
+            position: fixed; /* Tetap di posisi saat scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Diletakkan di belakang konten utama */
+            filter: blur(5px); /* Efek blur */
+            background-image: url('img/background.jpeg'); /* Gambar latar belakang */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang kontainer dengan transparansi */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek dramatis */
+            max-width: 800px; /* Lebar maksimum kontainer */
+            margin: auto; /* Posisi tengah halaman */
+            position: relative; /* Untuk menentukan posisi relatif terhadap latar belakang */
+            z-index: 1; /* Diletakkan di depan latar belakang */
+        }
+        h1 {
+            color: #b22222;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Membuat elemen dapat dibungkus */
+        }
+        .image {
+            border-radius: 15px;
+            width: 200px; /* Lebar gambar potret */
+            height: 300px; /* Tinggi gambar potret */
+            object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+        }
+        .landscape-container {
+            position: relative;
+            width: 100%;
+            margin-top: 20px; /* Jarak atas dari elemen sebelumnya */
+        }
+        .landscape {
+            border-radius: 15px;
+            width: 100%; /* Lebar gambar lanskap mengisi kontainer */
+            max-height: 400px; /* Tinggi maksimum gambar lanskap */
+            object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+        }
+        .date {
+            font-size: 1.5em;
+            color: #800000;
+            background-color: rgba(255, 255, 255, 0.8); /* Latar belakang transparan */
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Bayangan */
+            position: absolute;
+            top: 10px; /* Posisi di atas gambar lanskap */
+            right: 10px; /* Posisi di kanan gambar lanskap */
+            transform: translate(0, -10%); /* Sedikit menggeser ke atas */
+        }
+        .description {
+            font-size: 1.5em;
+            color: #800000;
+            background-color: rgba(255, 255, 255, 0.8); /* Latar belakang transparan */
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Bayangan */
+            position: absolute;
+            bottom: 20px; /* Posisi di bawah gambar lanskap */
+            left: 20px; /* Posisi di kiri gambar lanskap */
+        }
+        .bubble {
+            max-width: 300px;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: -50px;
+        }
+        .bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color: #fff;
+            border-bottom: 0;
+            margin-left: -10px;
+            margin-bottom: -10px;
+        }
+        .bubble1 {
+            top: -70px;
+            left: 20px;
+        }
+        .bubble2 {
+            top: -140px;
+            left: 100px;
+        }
+        .heart {
+            font-size: 2.5em;
+            color: #ff1493;
+            margin: 0 10px; /* Jarak antara simbol love dengan gambar potret */
+        }
+        @media (max-width: 600px) {
+            .image {
+                width: 100px; /* Lebar gambar potret pada layar kecil */
+                height: 150px; /* Tinggi gambar potret pada layar kecil */
+            }
+            .landscape {
+                max-height: 200px; /* Tinggi maksimum gambar lanskap pada layar kecil */
+            }
+            .date, .description {
+                font-size: 1em;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.5); /* Latar belakang lebih transparan */
+            }
+            .date {
+                right: 10px; /* Memindahkan posisi ke kanan atas agak tengah */
+                top: 10px; /* Memastikan posisi tetap di atas */
+                transform: translate(0, -10%); /* Menggeser sedikit ke atas */
+            }
+            .description {
+                font-size: 1em;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background-color: rgba(255, 255, 255, 0.5); /* Latar belakang lebih transparan */
+            }
+            .bubble {
+                max-width: 200px;
+                padding: 5px 10px;
+            }
+            .bubble1 {
+                top: -35px;
+                left: 10px;
+            }
+            .bubble2 {
+                top: -70px;
+                left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- Lapisan untuk latar belakang blur -->
+    <div class="container">
+        <h1>😾❤️🌙</h1>
+        <h2>Selamat Anniversary Mezzaluna dan Kucing Garong!</h2><br>
+        <div class="images">
+            <img class="image" src="img/potrait kucing.jpeg" alt="Potret Kucing">
+            <span class="heart">❤️</span>
+            <img class="image" src="img/potrait bulan.jpeg" alt="Potret Bulan">
+        </div>
+        <div class="landscape-container">
+            <div class="bubble bubble1">"Hai cat loverssss"</div>
+            <div class="bubble bubble2">"Cewek"</div>
+            <img class="landscape" src="img/landscape.jpeg" alt="Landscape">
+            <div class="date">20 Januari 2024</div> <!-- Elemen tanggal pertama -->
+            <div class="description">First date, Summarecon</div> <!-- Deskripsi foto pertama -->
+        </div>
+        <div class="landscape-container">
+            <img class="landscape" src="img/landscape2.jpeg" alt="Landscape kedua">
+            <div class="date">13 Juli 2024</div> <!-- Elemen tanggal kedua -->
+            <div class="description">Newest date, IKEA</div> <!-- Deskripsi foto kedua -->
+        </div>
+    </div>
+</body>
+</html>
